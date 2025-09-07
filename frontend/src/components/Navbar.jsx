@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { isLoggedIn, logout } = useAuth();
-  const [showItemsFilter, setShowItemsFilter] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -30,65 +30,43 @@ const Navbar = () => {
           </div>
         </h1>
 
-        {/* Centered Links */}
-        <div className="flex items-center space-x-6">
+        {/* Hamburger Button - mobile only */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setShowMenu(!showMenu)}
+        >
+          ☰
+        </button>
+
+        {/* Menu Links - desktop */}
+        <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-white hover:text-gray-200">
             Home
           </Link>
           <Link to="/create" className="text-white hover:text-gray-200">
             Create
           </Link>
-
-          {/* Items Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setShowItemsFilter(!showItemsFilter)}
-              className="text-white hover:text-gray-200"
-            >
-              Items Browser
-            </button>
-            {showItemsFilter && (
-              <div className="absolute top-8 left-0 bg-white rounded-md shadow-lg py-2 min-w-[120px]">
-                <button
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
-                  onClick={() => {
-                    navigate("/items?filter=lost");
-                    setShowItemsFilter(false);
-                  }}
-                >
-                  Lost
-                </button>
-                <button
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
-                  onClick={() => {
-                    navigate("/items?filter=found");
-                    setShowItemsFilter(false);
-                  }}
-                >
-                  Found
-                </button>
-              </div>
-            )}
-          </div>
-
+          <Link to="/items" className="text-white hover:text-gray-200">
+            Items Browser
+          </Link>
           <Link to="/my-items" className="text-white hover:text-gray-200">
             My Listings
           </Link>
         </div>
 
-        {/* Right Side Buttons */}
-        <div className="space-x-4 flex items-center">
+        {/* Auth Buttons - desktop */}
+        <div className="hidden md:flex space-x-4 items-center">
           {!isLoggedIn ? (
             <>
               <Link
                 to="/signup"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:opacity-90 transition-all duration-300"
+                className="bg-purple-500 text-white px-4 py-2 rounded-lg"
               >
                 Sign Up
               </Link>
               <Link
                 to="/login"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:opacity-90 transition-all duration-300"
+                className="bg-purple-500 text-white px-4 py-2 rounded-lg"
               >
                 Login
               </Link>
@@ -96,13 +74,76 @@ const Navbar = () => {
           ) : (
             <button
               onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition"
+              className="bg-red-500 text-white px-4 py-2 rounded-lg"
             >
               Logout
             </button>
           )}
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {showMenu && (
+        <div className="md:hidden bg-blue-500 mt-2 p-4 flex flex-col gap-2">
+          <Link
+            to="/"
+            className="text-white"
+            onClick={() => setShowMenu(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/create"
+            className="text-white"
+            onClick={() => setShowMenu(false)}
+          >
+            Create
+          </Link>
+          <Link
+            to="/items"
+            className="text-white"
+            onClick={() => setShowMenu(false)}
+          >
+            Items Browser
+          </Link>
+          <Link
+            to="/my-items"
+            className="text-white"
+            onClick={() => setShowMenu(false)}
+          >
+            My Listings
+          </Link>
+
+          {!isLoggedIn ? (
+            <>
+              <Link
+                to="/signup"
+                className="text-white"
+                onClick={() => setShowMenu(false)}
+              >
+                Sign Up
+              </Link>
+              <Link
+                to="/login"
+                className="text-white"
+                onClick={() => setShowMenu(false)}
+              >
+                Login
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={() => {
+                handleLogout();
+                setShowMenu(false);
+              }}
+              className="text-white"
+            >
+              Logout
+            </button>
+          )}
+        </div>
+      )}
     </nav>
   );
 };
