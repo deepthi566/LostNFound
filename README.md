@@ -25,5 +25,29 @@ Built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
 - **Frontend:** React.js, React Router, Tailwind CSS, Lucide Icons  
 - **Backend:** Node.js, Express.js, JWT Authentication  
 - **Database:** MongoDB with Mongoose  
-- **Tools & Libraries:** Axios, Swiper.js, react-hot-toast, VS Code  
+- **Tools & Libraries:** Axios, Swiper.js, react-hot-toast, VS Code
+
+---
+
+# SCREENSHOTS
+
+**Signup page:**  
+
+![Signup_page](./screenshots/signup.png)  
+
+**Add New Item:**  
+
+![Add Item](./screenshots/farmer_pov.png)  
+
+
+**All Items:**  
+
+![All items](./screenshots/cart.png)  
+
+**My Items:**
+
+![My items](./screenshots/cart.png) 
+
+---
+
 
