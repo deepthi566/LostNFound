@@ -50,4 +50,85 @@ Built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
 
 ---
 
+# INSTALLATION:
+
+1. **Clone the repository:**  
+```bash
+git clone https://github.com/deepthi566/LostNFound.git
+```
+
+---
+
+2. **Navigate to the project folder:**
+```bash
+cd lost-and-found
+```
+
+---
+
+3.**Install backend dependencies:**
+```bash
+npm install
+```
+
+---
+
+4.**Navigate to the frontend folder and install dependencies:**
+```bash
+cd frontend
+npm install
+```
+
+---
+
+5.**Run the backend server:**
+```bash
+npm start
+```
+
+---
+
+6.**Run the frontend server:**
+```bash
+npm start
+```
+
+---
+
+# Usage
+
+Navigate to http://localhost:3000 in your browser.
+
+Register or log in to report lost items.
+
+Browse items reported by others and mark them as found if applicable.
+
+---
+
+# Future Enhancements
+
+Email or SMS notifications when items are reported found.
+
+Advanced search and filter functionality.
+
+User authentication with role-based access.
+
+Admin panel to manage listings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
