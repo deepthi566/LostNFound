@@ -97,13 +97,28 @@ npm start
 
 # Usage
 
-Navigate to http://localhost:3000 in your browser.
+Navigate to http://localhost:5000 in your browser.
 
 Register or log in to report lost items.
 
 Browse items reported by others and mark them as found if applicable.
 
 ---
+
+# Folder Structure
+
+lost-and-found/
+
+├── frontend/    
+
+├── server/ 
+
+├── screenshots/ 
+
+├── package.json
+
+└── README.md
+
 
 # Future Enhancements
 
