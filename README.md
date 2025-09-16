@@ -37,16 +37,16 @@ Built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
 
 **Add New Item:**  
 
-![Add Item](./screenshots/farmer_pov.png)  
+![Add Item](./screenshots/create_item.png)  
 
 
 **All Items:**  
 
-![All items](./screenshots/cart.png)  
+![All items](./screenshots/all_items.png)  
 
 **My Items:**
 
-![My items](./screenshots/cart.png) 
+![My items](./screenshots/my_listings.png) 
 
 ---
 
